@@ -1,0 +1,25 @@
+
+{
+  "name": "Test M - Calibración Muscular",
+  "short_name": "Test M",
+  "description": "Aplicación de práctica de calibración muscular",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#42105f",
+  "theme_color": "#42105f",
+  "icons": [
+    {
+      "src": "./test-m-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./test-m-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
