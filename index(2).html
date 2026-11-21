@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="es"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#42105f">
+<link rel="manifest" href="./manifest.json">
+<link rel="icon" type="image/png" href="./test-m-192.png">
+<link rel="apple-touch-icon" href="./test-m-192.png">
+<title>Test M</title>
+<style>
+:root{font-family:system-ui,-apple-system,sans-serif;color:#f5f7fc;background:#101725}
+*{box-sizing:border-box}body{margin:0;padding:20px 14px}.app{max-width:520px;margin:auto}
+h1{font-size:1.7rem;margin:8px 0}p{color:#bac4d5;line-height:1.5}
+.panel{background:#1b2638;border:1px solid #334158;border-radius:20px;padding:20px;margin:16px 0}
+.row{display:flex;gap:12px}.row>*{flex:1}
+button,select{font:inherit;border-radius:13px;padding:15px 12px;border:1px solid #526078;background:#293750;color:white;cursor:pointer}
+button.primary{background:#6550b8;border:0;font-weight:700;width:100%}
+button.chosen{outline:3px solid #b9caff}
+label{display:block;margin:16px 0 8px}.muted{color:#bac4d5;font-size:.9rem}.hidden{display:none!important}
+#play{position:relative;min-height:90dvh;display:flex;flex-direction:column}
+.playtop{display:flex;align-items:center;gap:14px;margin:5px 0 18px}
+#counter{font-size:.8rem;color:#aeb8c9;white-space:nowrap}
+.progress{height:5px;background:#39465c;border-radius:10px;overflow:hidden;flex:1}
+#bar{height:100%;width:0;background:#8c7bdf;transition:width .2s}
+.close{width:38px;height:38px;padding:0;border:0;background:transparent;font-size:27px;color:#aeb8c9;flex:none}
+.wordbox{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;min-height:320px;flex:1;border-radius:22px;padding:22px;background:#283448}
+.wordbox.high{background:#145d39}.wordbox.low{background:#922d3b}
+#word{font-size:clamp(2.7rem,12vw,4.7rem);font-weight:800;overflow-wrap:anywhere;line-height:1.1}
+#level{font-size:1.05rem;opacity:.82;margin-top:15px}
+.wordbox.wait #word{font-size:3.5rem}
+.answers{display:flex;gap:18px;margin:20px 0 8px}
+.answers button{flex:1;min-height:84px;border:0;display:flex;align-items:center;justify-content:center}
+.answers .yes{background:#177b4a}.answers .no{background:#aa3441}
+.answers svg{width:42px;height:42px;stroke:white;stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+#result{text-align:center}.score{font-size:4rem;font-weight:800;margin:4px 0}
+.reflection{font-size:1.08rem;color:#f0e6ff;margin:24px 0;line-height:1.5}
+.history{max-height:220px;overflow:auto;text-align:left}.history div{padding:7px;border-bottom:1px solid #334158}
+.good{color:#80dfad}.bad{color:#ff9ba3}
+</style></head><body><main class="app">
+<section id="setup">
+<h1>Test M</h1><p>Práctica de calibración</p>
+<div class="panel"><strong>Configura tu ronda</strong>
+<label>Palabras por ronda</label><div class="row" id="lengths"><button data-n="10">10</button><button data-n="20" class="chosen">20</button><button data-n="30">30</button></div>
+<label for="delay">Espera antes de cada palabra</label><select id="delay" style="width:100%"><option value="2">2 segundos</option><option value="3" selected>3 segundos</option><option value="5">5 segundos</option></select>
+<p class="muted">Cierra los ojos y realiza tu calibración. Al terminar la cuenta atrás aparecerán la palabra y su nivel, y sonará un pitido. Marca el pulgar correspondiente para continuar.</p>
+<button id="start" class="primary">Empezar ronda</button></div>
+<div class="panel"><strong>Recordatorio</strong><p class="muted">Para el test muscular utiliza una afirmación, por ejemplo: «La palabra que aparece en pantalla calibra como verdad».</p></div>
+</section>
+<section id="play" class="hidden">
+<div class="playtop"><span id="counter">1 / 20</span><div class="progress"><div id="bar"></div></div><button id="stop" class="close" aria-label="Cancelar ronda" title="Cancelar ronda">×</button></div>
+<div id="wordbox" class="wordbox wait"><div id="word" aria-live="polite">3</div><div id="level" class="hidden"></div></div>
+<div id="answer" class="answers hidden">
+<button id="yes" class="yes" aria-label="He acertado" title="He acertado"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10v11H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3Zm0 0 5-8c2-1 3 0 3 2l-1 6h5a3 3 0 0 1 3 3l-2 6a3 3 0 0 1-3 2H7"/></svg></button>
+<button id="no" class="no" aria-label="He fallado" title="He fallado"><svg viewBox="0 0 24 24" aria-hidden="true"><g transform="rotate(180 12 12)"><path d="M7 10v11H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3Zm0 0 5-8c2-1 3 0 3 2l-1 6h5a3 3 0 0 1 3 3l-2 6a3 3 0 0 1-3 2H7"/></g></svg></button>
+</div></section>
+<section id="result" class="panel hidden">
+<h2>Resultado de la ronda</h2><p id="score" class="score">0%</p><p id="detail"></p>
+<p class="reflection">Ahora observa la energía que se mueve en ti. Sea cual sea, suéltala.</p>
+<div id="history" class="history"></div><button id="again" class="primary" style="margin-top:18px">Nueva ronda</button>
+</section>
+</main><script>
+(()=>{
+'use strict';
+const pool=[
+{w:'Vergüenza',n:'20'},{w:'Culpa',n:'30'},{w:'Apatía',n:'50'},{w:'Tristeza',n:'75'},
+{w:'Miedo',n:'100'},{w:'Deseo',n:'125'},{w:'Ira',n:'150'},{w:'Orgullo',n:'175'},
+{w:'Coraje',n:'200'},{w:'Neutralidad',n:'250'},{w:'Voluntad',n:'310'},
+{w:'Aceptación',n:'350'},{w:'Razón',n:'400'},{w:'Amor',n:'500'},
+{w:'Alegría',n:'540'},{w:'Paz',n:'600'},{w:'Iluminación',n:'700–1000'}];
+const $=id=>document.getElementById(id);
+let length=20,delay=3,round=[],index=0,answers=[],timer=null,active=false,audio=null;
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function makeRound(n){let out=[];while(out.length<n)out.push(...shuffle(pool.slice()));return out.slice(0,n)}
+function show(which){for(const id of ['setup','play','result'])$(id).classList.toggle('hidden',id!==which)}
+function beep(){try{audio=audio||new(window.AudioContext||window.webkitAudioContext)();if(audio.state==='suspended')audio.resume();const o=audio.createOscillator(),g=audio.createGain();o.type='sine';o.frequency.value=880;g.gain.setValueAtTime(.0001,audio.currentTime);g.gain.exponentialRampToValueAtTime(.16,audio.currentTime+.015);g.gain.exponentialRampToValueAtTime(.0001,audio.currentTime+.22);o.connect(g);g.connect(audio.destination);o.start();o.stop(audio.currentTime+.23)}catch(e){}}
+function next(){if(!active)return;const token=index;let left=delay;
+$('counter').textContent=`${index+1} / ${length}`;$('bar').style.width=`${answers.length/length*100}%`;
+$('answer').classList.add('hidden');$('wordbox').className='wordbox wait';$('word').textContent=left;$('level').classList.add('hidden');
+clearInterval(timer);timer=setInterval(()=>{if(!active||token!==index){clearInterval(timer);return}left--;if(left>0){$('word').textContent=left}else{clearInterval(timer);const item=round[index];$('word').textContent=item.w;$('level').textContent=item.n;$('level').classList.remove('hidden');$('wordbox').className='wordbox '+(parseInt(item.n,10)>=200?'high':'low');$('answer').classList.remove('hidden');beep()}},1000)}
+function record(ok){if(!active||$('answer').classList.contains('hidden'))return;answers.push(ok);index++;if(index===length){active=false;clearInterval(timer);const hits=answers.filter(Boolean).length;$('score').textContent=`${Math.round(100*hits/length)}%`;$('detail').textContent=`${hits} aciertos de ${length} · ${length-hits} fallos`;$('history').replaceChildren(...round.map((item,i)=>{const div=document.createElement('div');div.textContent=`${i+1}. ${item.w} (${item.n}) · ${answers[i]?'Acierto':'Fallo'}`;div.className=answers[i]?'good':'bad';return div}));show('result')}else next()}
+$('lengths').addEventListener('click',e=>{const b=e.target.closest('button[data-n]');if(!b)return;length=Number(b.dataset.n);for(const x of $('lengths').querySelectorAll('button'))x.classList.toggle('chosen',x===b)});
+$('start').onclick=()=>{delay=Number($('delay').value);round=makeRound(length);answers=[];index=0;active=true;show('play');try{audio=audio||new(window.AudioContext||window.webkitAudioContext)();audio.resume()}catch(e){}next()};
+$('yes').onclick=()=>record(true);$('no').onclick=()=>record(false);
+$('stop').onclick=()=>{active=false;clearInterval(timer);show('setup')};
+$('again').onclick=()=>{active=false;clearInterval(timer);show('setup')};
+})();
+</script></body></html>
