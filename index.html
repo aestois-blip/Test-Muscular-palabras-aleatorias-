@@ -35,15 +35,84 @@ label{display:block;margin:16px 0 8px}.muted{color:#bac4d5;font-size:.9rem}.hidd
 .reflection{font-size:1.08rem;color:#f0e6ff;margin:24px 0;line-height:1.5}
 .history{max-height:220px;overflow:auto;text-align:left}.history div{padding:7px;border-bottom:1px solid #334158}
 .good{color:#80dfad}.bad{color:#ff9ba3}
+
+/* Menú principal */
+.home-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;position:relative;z-index:3}
+.home-top h1{margin-bottom:0}.home-top p{margin-top:5px}
+.menu-wrap{position:relative}.menu-toggle{height:44px;width:46px;display:grid;place-items:center;padding:0;border:1px solid #3d4669;background:#253047;border-radius:12px;color:#f5f7fc}
+.menu-toggle svg{width:24px;height:24px;stroke:currentColor;stroke-width:2.3;stroke-linecap:round}
+.menu-pop{position:absolute;right:0;top:53px;width:min(300px,calc(100vw - 40px));background:#252e45;border:1px solid #4a5070;border-radius:16px;box-shadow:0 16px 38px #0008;padding:9px;z-index:10}
+.menu-pop button{width:100%;text-align:left;border:0;background:transparent;display:flex;gap:12px;align-items:center;padding:13px 11px;color:#fff;border-radius:10px;font-size:.96rem}
+.menu-pop button:not(:disabled):active,.menu-pop button:not(:disabled):focus-visible{background:#4a4277}
+.menu-pop button:disabled{opacity:.48;cursor:default}
+.menu-pop svg{width:21px;height:21px;stroke:currentColor;stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.menu-title{margin:4px 10px 5px;font-weight:750;color:#d0c9f6;font-size:.8rem;text-transform:uppercase;letter-spacing:.09em}
+.menu-sub{display:block;margin-top:3px;color:#a6b2c7;font-size:.74rem}
+[hidden]{display:none!important}
+/* Guía: cinco diapositivas con texto arriba e ilustraciones debajo */
+#guide{padding:0 0 16px}.guide-top{display:flex;gap:10px;align-items:center;justify-content:space-between;margin:2px 0 12px}
+.guide-top strong{font-size:1.02rem}.guide-top .close{font-size:27px}
+.guide-progress{display:flex;gap:6px;margin:0 0 14px}.guide-progress span{height:5px;background:#33405a;flex:1;border-radius:6px}.guide-progress span.current{background:#9b87f2}
+.guide-slide{display:none;animation:guideFade .2s ease both}.guide-slide.active{display:flex;flex-direction:column;height:100%;min-height:0;gap:8px}@keyframes guideFade{from{opacity:.35;transform:translateX(7px)}to{opacity:1;transform:translateX(0)}}
+.guide-figure{flex:1 1 auto;min-height:0;width:100%;display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse at 50% 12%,#30274b 0%,#171f32 70%);border:1px solid #35415c;border-radius:22px;padding:clamp(8px,2vh,16px);overflow:hidden;touch-action:pan-y}
+.mini-phone{width:min(100%,260px);min-height:269px;transform:scale(var(--preview-scale,.90));transform-origin:center center;flex-shrink:0;background:#101725;border:2px solid #45516e;border-radius:20px;padding:14px 14px 17px;box-shadow:0 10px 30px #0007}
+.mini-head{display:flex;justify-content:space-between;align-items:center;margin:1px 0 12px}.mini-head b{font-size:18px}.mini-tag{font-size:11px;color:#aab8cf}
+.mini-hamburger{width:34px;height:31px;display:grid;place-items:center;background:#6f58c0;border-radius:9px;font-size:21px;line-height:1;color:#fff;font-weight:650}
+.mini-panel{padding:13px;background:#1b2638;border:1px solid #3f4a60;border-radius:13px;font-size:12px}
+.mini-menu{background:#28334c;border:1px solid #a68ef1;border-radius:12px;padding:9px 10px;font-size:12px;margin-top:8px;color:#fff;box-shadow:0 3px 12px #0005}
+.mini-menu .active-menu{background:#584a88;border-radius:7px;padding:10px 7px;margin-bottom:3px;font-weight:700}.mini-muted{color:#9eabc2}
+.mini-pick{display:flex;gap:7px;margin:9px 0 14px}.mini-pick span{flex:1;text-align:center;padding:9px 0;background:#293750;border-radius:8px}.mini-pick span.active{outline:2px solid #bdacff;background:#4d3c82}
+.mini-action{background:#6b55c3;color:#fff;text-align:center;padding:11px;border-radius:9px;font-weight:750;font-size:12px}
+.mini-select{margin:6px 0 14px;padding:10px;background:#293750;border-radius:8px}
+.mini-top{display:flex;align-items:center;justify-content:space-between;color:#b9c3d6;font-size:12px;margin-bottom:12px}.mini-bar{height:5px;background:#313e55;border-radius:8px;flex:1;margin:0 12px}.mini-bar::before{content:'';display:block;width:30%;height:100%;border-radius:8px;background:#8f7fe1}
+.mini-close{font-size:20px;color:#b9c3d6}.mini-word{height:165px;border-radius:13px;background:#283448;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-weight:800;font-size:58px;line-height:1.1}.mini-word.high{background:#145d39;font-size:39px}.mini-word small{font-weight:400;font-size:18px;margin-top:9px;opacity:.83}
+.mini-word .unknown{font-size:36px;letter-spacing:3px}.mini-buttons{display:flex;gap:12px;margin-top:10px}.mini-buttons div{flex:1;min-height:55px;display:grid;place-items:center;border-radius:12px;background:#177b4a}.mini-buttons div:last-child{background:#aa3441}.mini-buttons svg{width:29px;height:29px;stroke:#fff;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.mini-beep{display:flex;justify-content:center;align-items:center;gap:7px;color:#e1dbff;font-size:12px;margin:12px 0 0}.mini-beep svg{width:23px;height:23px;stroke:currentColor;fill:none;stroke-width:2}
+.mini-score{text-align:center;font-size:39px;font-weight:800;margin:8px 0 4px}.mini-reflection{font-size:11px;color:#e8dcff;text-align:center;line-height:1.5;padding:0 6px;margin:18px 0}.mini-history{font-size:11px;color:#b3bed1;margin:0 4px 14px;border-top:1px solid #3d4861;padding-top:8px}
+.guide-copy{flex:0 0 auto;padding:1px 6px 4px}.guide-copy h2{font-size:1.35rem;line-height:1.24;margin:0 0 10px}.guide-copy p{font-size:.97rem;margin:8px 0;color:#c3ccdc}.guide-copy strong{color:#f1f0ff}
+.guide-copy .guide-note{color:#aeb8ca;font-size:.87rem;margin-top:12px;line-height:1.4}.guide-quote{margin:12px 0;border-left:3px solid #9880ec;padding:9px 12px;background:#262b43;border-radius:0 10px 10px 0;color:#f5f2ff;font-size:.94rem;line-height:1.5}
+.guide-bottom{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:8px}
+.guide-bottom button{min-height:48px;padding:10px 15px}.guide-bottom .guide-next{background:#6550b8;border:0;font-weight:700;min-width:120px}.guide-bottom .guide-back{background:#263047;border:1px solid #44516a}.guide-number{font-size:.86rem;color:#afbad0;white-space:nowrap}
+.guide-swipe-hint{font-size:.77rem;color:#8e9bb2;text-align:center;margin:12px 0 0}
+/* Ajuste a la altura visible real: navegación abajo, lámina centrada sin desplazar la página. */
+body.guide-open{overflow:hidden}
+#guide{height:calc(100dvh - 40px);min-height:0;display:flex;flex-direction:column;padding-bottom:0}
+#guide.hidden{display:none!important}
+.guide-top,.guide-progress,.guide-bottom{flex:0 0 auto}
+#guide-pages{flex:1 1 auto;min-height:0;overflow:hidden}
+.guide-bottom{margin-top:9px}
+.guide-swipe-hint{flex:0 0 auto;margin:9px 0 2px;line-height:1.3}
+@media(max-height:780px){
+.guide-top{margin-bottom:8px}.guide-progress{margin-bottom:10px}
+.guide-copy h2{font-size:1.2rem;margin-bottom:6px}
+.guide-copy p{font-size:.90rem;line-height:1.38;margin:5px 0}
+.guide-copy .guide-note{font-size:.8rem;margin-top:6px;line-height:1.3}
+.guide-bottom{margin-top:7px}.guide-swipe-hint{margin-top:6px}
+}
+@media(max-height:680px){
+.guide-top{margin-bottom:5px}.guide-progress{margin-bottom:7px}
+.guide-copy h2{font-size:1.12rem}
+.guide-copy p{font-size:.82rem;line-height:1.28}
+.guide-copy .guide-note{font-size:.74rem;line-height:1.25}
+.guide-bottom button{min-height:43px;padding:8px 12px}
+.guide-swipe-hint{display:none}
+}
+@media(max-width:380px){.mini-phone{max-width:246px}.guide-copy h2{font-size:1.18rem}.guide-copy p{font-size:.9rem}}
+
 </style></head><body><main class="app">
 <section id="setup">
-<h1>Test M</h1><p>Práctica de calibración</p>
+<div class="home-top"><div><h1>Test M</h1><p>Práctica de calibración</p></div>
+<div class="menu-wrap"><button id="menu-toggle" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-pop"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6H20M4 12H20M4 18H20"/></svg></button>
+<div id="menu-pop" class="menu-pop" hidden><div class="menu-title">Menú</div>
+<button id="open-guide"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4.5h7a4 4 0 0 1 4 4v11a4 4 0 0 0-4-4H3zM21 4.5h-3a4 4 0 0 0-4 4v11a4 4 0 0 1 4-4h3z"/></svg><span>Cómo usar Test M</span></button>
+<button disabled aria-label="Aprender el autotest: próximamente"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 12V5a2 2 0 0 1 4 0v5-6a2 2 0 0 1 4 0v7-5a2 2 0 0 1 4 0v10c0 4-3 6-7 6H9c-2 0-4-2-5-4l-2-4a2 2 0 0 1 3-2l4 4"/></svg><span>Aprender el autotest <small class="menu-sub">Próximamente</small></span></button>
+</div></div></div>
 <div class="panel"><strong>Configura tu ronda</strong>
 <label>Palabras por ronda</label><div class="row" id="lengths"><button data-n="10">10</button><button data-n="20" class="chosen">20</button><button data-n="30">30</button></div>
 <label for="delay">Espera antes de cada palabra</label><select id="delay" style="width:100%"><option value="2">2 segundos</option><option value="3" selected>3 segundos</option><option value="5">5 segundos</option></select>
-<p class="muted">Cierra los ojos y realiza tu calibración. Al terminar la cuenta atrás aparecerán la palabra y su nivel, y sonará un pitido. Marca el pulgar correspondiente para continuar.</p>
+<p class="muted">Espera sin mirar la pantalla. Tras el pitido, haz el autotest sin mirar aún la palabra. Luego comprueba el color y marca si has acertado.</p>
 <button id="start" class="primary">Empezar ronda</button></div>
-<div class="panel"><strong>Recordatorio</strong><p class="muted">Para el test muscular utiliza una afirmación, por ejemplo: «La palabra que aparece en pantalla calibra como verdad».</p></div>
+<div class="panel"><strong>Recordatorio</strong><p class="muted">Al oír el pitido, utiliza una afirmación, por ejemplo: «La palabra que aparece en pantalla calibra en 200 o más».</p></div>
 </section>
 <section id="play" class="hidden">
 <div class="playtop"><span id="counter">1 / 20</span><div class="progress"><div id="bar"></div></div><button id="stop" class="close" aria-label="Cancelar ronda" title="Cancelar ronda">×</button></div>
@@ -54,8 +123,35 @@ label{display:block;margin:16px 0 8px}.muted{color:#bac4d5;font-size:.9rem}.hidd
 </div></section>
 <section id="result" class="panel hidden">
 <h2>Resultado de la ronda</h2><p id="score" class="score">0%</p><p id="detail"></p>
-<p class="reflection">Ahora observa la energía que se mueve en ti. Sea cual sea, déjala ser.</p>
+<p class="reflection">Ahora observa la energía que se mueve en ti. Sea cual sea, suéltala.</p>
 <div id="history" class="history"></div><button id="again" class="primary" style="margin-top:18px">Nueva ronda</button>
+</section>
+<section id="guide" class="hidden" aria-label="Guía visual Cómo usar Test M">
+<div class="guide-top"><strong>Cómo usar Test M</strong><button id="close-guide" class="close" aria-label="Cerrar guía" title="Cerrar guía">×</button></div>
+<div class="guide-progress" id="guide-progress" aria-label="Progreso de la guía"><span></span><span></span><span></span><span></span><span></span></div>
+<div id="guide-pages">
+<article class="guide-slide active" data-step="1" aria-label="Paso 1 de 5: Configura tu ronda">
+<div class="guide-copy"><h2>1. Configura tu ronda</h2><p>Elige <strong>10, 20 o 30 palabras</strong> y una espera de <strong>2, 3 o 5 segundos</strong>. Después, pulsa <strong>«Empezar ronda»</strong>.</p></div>
+<div class="guide-figure" role="img" aria-label="Ilustración de la aplicación: Configura tu ronda"><div class="mini-phone"><div class="mini-head"><b>Test M</b><span class="mini-hamburger" aria-hidden="true">☰</span></div><div class="mini-panel"><b>Configura tu ronda</b><div class="mini-muted" style="margin-top:9px">Palabras por ronda</div><div class="mini-pick"><span>10</span><span class="active">20</span><span>30</span></div><div class="mini-muted">Espera antes de cada palabra</div><div class="mini-select">3 segundos &nbsp;⌄</div><div class="mini-action">Empezar ronda</div></div></div></div>
+</article>
+<article class="guide-slide" data-step="2" aria-label="Paso 2 de 5: Espera sin mirar">
+<div class="guide-copy"><h2>2. Espera sin mirar</h2><p>Durante la cuenta atrás, <strong>no mires la pantalla</strong>. Puedes cerrar los ojos o dirigir la mirada hacia otro lugar. Espera a escuchar el pitido.</p></div>
+<div class="guide-figure" role="img" aria-label="Ilustración de la aplicación: Espera sin mirar"><div class="mini-phone"><div class="mini-top"><span>1 / 20</span><div class="mini-bar"></div><span class="mini-close">×</span></div><div class="mini-word">3</div><div style="text-align:center;color:#cec4ff;font-size:12px;margin-top:12px">◉ &nbsp; Espera sin mirar</div></div></div>
+</article>
+<article class="guide-slide" data-step="3" aria-label="Paso 3 de 5: Calibración">
+<div class="guide-copy"><h2>3. Calibración</h2><p>El pitido indica que <strong>la palabra ya está en pantalla</strong>. Sin mirarla todavía, puedes hacer la afirmación: <strong>«La palabra que aparece en pantalla calibra como verdad»</strong>. Después, puedes decir <strong>«Resiste»</strong> o <strong>«Mantén firme»</strong> mientras haces el test y observas la respuesta muscular.</p></div>
+<div class="guide-figure" role="img" aria-label="Ilustración de la aplicación: Razón, nivel 400"><div class="mini-phone"><div class="mini-top"><span>1 / 20</span><div class="mini-bar"></div><span class="mini-close">×</span></div><div class="mini-word high">RAZÓN<small>400</small></div><div class="mini-buttons"><div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10v11H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3Zm0 0 5-8c2-1 3 0 3 2l-1 6h5a3 3 0 0 1 3 3l-2 6a3 3 0 0 1-3 2H7"/></svg></div><div><svg viewBox="0 0 24 24" aria-hidden="true"><g transform="rotate(180 12 12)"><path d="M7 10v11H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3Zm0 0 5-8c2-1 3 0 3 2l-1 6h5a3 3 0 0 1 3 3l-2 6a3 3 0 0 1-3 2H7"/></g></svg></div></div></div></div>
+</article>
+<article class="guide-slide" data-step="4" aria-label="Paso 4 de 5: Comprueba tu calibración">
+<div class="guide-copy"><h2>4. Comprueba tu calibración</h2><p>Ahora mira la pantalla: <strong>verde</strong> indica nivel 200 o más y <strong>rojo</strong>, menos de 200. Comprueba si acertaste o fallaste. Pulsa el pulgar arriba si acertaste o abajo si fallaste. <strong>Al apretar un pulgar empezará automáticamente la siguiente cuenta atrás.</strong></p><p class="guide-note">Los números que aparecen debajo de las palabras representan su nivel de calibración según la escala de los niveles de conciencia de Hawkins.</p></div>
+<div class="guide-figure" role="img" aria-label="Ilustración de la aplicación: Descubre la palabra y responde"><div class="mini-phone"><div class="mini-top"><span>1 / 20</span><div class="mini-bar"></div><span class="mini-close">×</span></div><div class="mini-word high">AMOR<small>500</small></div><div class="mini-buttons"><div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10v11H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3Zm0 0 5-8c2-1 3 0 3 2l-1 6h5a3 3 0 0 1 3 3l-2 6a3 3 0 0 1-3 2H7"/></svg></div><div><svg viewBox="0 0 24 24" aria-hidden="true"><g transform="rotate(180 12 12)"><path d="M7 10v11H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3Zm0 0 5-8c2-1 3 0 3 2l-1 6h5a3 3 0 0 1 3 3l-2 6a3 3 0 0 1-3 2H7"/></g></svg></div></div></div></div>
+</article>
+<article class="guide-slide" data-step="5" aria-label="Paso 5 de 5: Observa tu resultado">
+<div class="guide-copy"><h2>5. Observa tu resultado</h2><p>Al finalizar, verás el <strong>porcentaje de aciertos</strong>, el historial y el recordatorio de observar y soltar la energía. Pulsa <strong>«Nueva ronda»</strong> para repetir.</p></div>
+<div class="guide-figure" role="img" aria-label="Ilustración de la aplicación: Observa tu resultado"><div class="mini-phone"><div class="mini-panel"><div style="font-size:14px;text-align:center;font-weight:700">Resultado de la ronda</div><div class="mini-score">80%</div><div class="mini-muted" style="text-align:center">16 aciertos de 20</div><div class="mini-reflection">Ahora observa la energía que se mueve en ti. Sea cual sea, suéltala.</div><div class="mini-history">1. Amor (500) · Acierto<br>2. Miedo (100) · Acierto</div><div class="mini-action">Nueva ronda</div></div></div></div>
+</article></div>
+<div class="guide-bottom"><button id="guide-prev" class="guide-back">Anterior</button><span id="guide-number" class="guide-number">1 de 5</span><button id="guide-next" class="guide-next">Siguiente</button></div>
+<p class="guide-swipe-hint">Desliza a izquierda o derecha para cambiar de paso</p>
 </section>
 </main><script>
 (()=>{
@@ -70,7 +166,7 @@ const $=id=>document.getElementById(id);
 let length=20,delay=3,round=[],index=0,answers=[],timer=null,active=false,audio=null;
 function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
 function makeRound(n){let out=[];while(out.length<n)out.push(...shuffle(pool.slice()));return out.slice(0,n)}
-function show(which){for(const id of ['setup','play','result'])$(id).classList.toggle('hidden',id!==which)}
+function show(which){for(const id of ['setup','play','result','guide'])$(id).classList.toggle('hidden',id!==which)}
 function beep(){try{audio=audio||new(window.AudioContext||window.webkitAudioContext)();if(audio.state==='suspended')audio.resume();const o=audio.createOscillator(),g=audio.createGain();o.type='sine';o.frequency.value=880;g.gain.setValueAtTime(.0001,audio.currentTime);g.gain.exponentialRampToValueAtTime(.16,audio.currentTime+.015);g.gain.exponentialRampToValueAtTime(.0001,audio.currentTime+.22);o.connect(g);g.connect(audio.destination);o.start();o.stop(audio.currentTime+.23)}catch(e){}}
 function next(){if(!active)return;const token=index;let left=delay;
 $('counter').textContent=`${index+1} / ${length}`;$('bar').style.width=`${answers.length/length*100}%`;
@@ -82,5 +178,47 @@ $('start').onclick=()=>{delay=Number($('delay').value);round=makeRound(length);a
 $('yes').onclick=()=>record(true);$('no').onclick=()=>record(false);
 $('stop').onclick=()=>{active=false;clearInterval(timer);show('setup')};
 $('again').onclick=()=>{active=false;clearInterval(timer);show('setup')};
+
+// Menú y guía de uso visual
+let guideStep=0;
+const menuBtn=$('menu-toggle'),menuPop=$('menu-pop');
+function closeMenu(){menuPop.hidden=true;menuBtn.setAttribute('aria-expanded','false')}
+menuBtn.addEventListener('click',()=>{const shouldOpen=menuPop.hidden;menuPop.hidden=!shouldOpen;menuBtn.setAttribute('aria-expanded',String(shouldOpen))});
+document.addEventListener('click',e=>{if(!e.target.closest('.menu-wrap'))closeMenu()});
+function renderGuide(){
+ const slides=[...document.querySelectorAll('.guide-slide')];
+ slides.forEach((el,i)=>{el.classList.toggle('active',i===guideStep);el.setAttribute('aria-hidden',String(i!==guideStep))});
+ [...$('guide-progress').children].forEach((el,i)=>el.classList.toggle('current',i<=guideStep));
+ $('guide-number').textContent=`${guideStep+1} de ${slides.length}`;
+ $('guide-prev').disabled=guideStep===0;
+ $('guide-prev').style.visibility=guideStep===0?'hidden':'visible';
+ $('guide-next').textContent=guideStep===slides.length-1?'Terminar':'Siguiente';
+ // Reescala la representación del móvil sin cortar sus bordes.
+ sizeGuidePreview();
+ window.scrollTo({top:0,behavior:'instant'});
+}
+function sizeGuidePreview(){
+ const figure=document.querySelector('.guide-slide.active .guide-figure');
+ if(!figure)return;
+ const miniature=figure.querySelector('.mini-phone');
+ if(!miniature)return;
+ const css=getComputedStyle(figure);
+ const fitH=figure.clientHeight-parseFloat(css.paddingTop)-parseFloat(css.paddingBottom)-4;
+ const fitW=figure.clientWidth-parseFloat(css.paddingLeft)-parseFloat(css.paddingRight)-4;
+ const scale=Math.max(.12,Math.min(.9,fitH/miniature.offsetHeight,fitW/miniature.offsetWidth));
+ figure.style.setProperty('--preview-scale',String(scale));
+}
+function openGuide(){closeMenu();guideStep=0;document.body.classList.add('guide-open');show('guide');renderGuide()}
+function closeGuide(){document.body.classList.remove('guide-open');show('setup');closeMenu()}
+window.addEventListener('resize',()=>{if(!$('guide').classList.contains('hidden'))sizeGuidePreview()});
+$('open-guide').addEventListener('click',openGuide);
+$('close-guide').addEventListener('click',closeGuide);
+$('guide-prev').addEventListener('click',()=>{if(guideStep>0){guideStep--;renderGuide()}});
+$('guide-next').addEventListener('click',()=>{if(guideStep >= document.querySelectorAll('.guide-slide').length-1){closeGuide()}else{guideStep++;renderGuide()}});
+let touchStartX=0,touchStartY=0;
+$('guide-pages').addEventListener('touchstart',e=>{touchStartX=e.changedTouches[0].screenX;touchStartY=e.changedTouches[0].screenY},{passive:true});
+$('guide-pages').addEventListener('touchend',e=>{const dx=e.changedTouches[0].screenX-touchStartX,dy=e.changedTouches[0].screenY-touchStartY;if(Math.abs(dx)>55&&Math.abs(dx)>Math.abs(dy)*1.25){const next=guideStep+(dx<0?1:-1);if(next>=0&&next<document.querySelectorAll('.guide-slide').length){guideStep=next;renderGuide()}}},{passive:true});
+document.addEventListener('keydown',e=>{if(!$('guide').classList.contains('hidden')){if(e.key==='Escape')closeGuide();else if(e.key==='ArrowRight'&&guideStep<document.querySelectorAll('.guide-slide').length-1){guideStep++;renderGuide()}else if(e.key==='ArrowLeft'&&guideStep>0){guideStep--;renderGuide()}}else if(e.key==='Escape')closeMenu()});
+
 })();
 </script></body></html>
